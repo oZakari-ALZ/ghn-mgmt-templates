@@ -42,7 +42,7 @@ runs:
     - name: Run Bicep Deploy
       uses: azure/powershell@v2
       with:
-        azPSVersion: 'latest'
+        azPSVersion: 12.5.0
         inlineScript: |
           $whatIf = [System.Convert]::ToBoolean($env:WHAT_IF_ENABLED)
 
