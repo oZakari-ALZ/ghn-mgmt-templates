@@ -30,9 +30,6 @@ on:
       subscription_placement:
         type: boolean
         default: true
-      connectivity_resource_group:
-        type: boolean
-        default: true
       destroy:
         default: false
         type: boolean
@@ -208,21 +205,6 @@ jobs:
           firstRunWhatIf: 'false'
           firstDeployment: '${{ env.firstDeployment }}'
           whatIfEnabled: 'true'
-      - name: 'What If: Connectivity Resource Group Deployment'
-        uses: oZakari-ALZ/ghn-mgmt-templates/.github/actions/bicep-deploy@main
-        if: ${{ inputs.connectivity_resource_group && !inputs.destroy }}
-        with:
-          displayName: 'Connectivity Resource Group Deployment'
-          templateFilePath: './infra-as-code/bicep/modules/resourceGroup/resourceGroup.bicep'
-          templateParametersFilePath: './config/custom-parameters/resourceGroupConnectivity.parameters.all.json'
-          managementGroupId: ''
-          subscriptionId: '${{ env.CONNECTIVITY_SUBSCRIPTION_ID }}'
-          resourceGroupName: ''
-          location: '${{ env.LOCATION }}'
-          deploymentType: 'subscription'
-          firstRunWhatIf: 'true'
-          firstDeployment: '${{ env.firstDeployment }}'
-          whatIfEnabled: 'true'
 
       - name: Run Bicep Destroy What If
         uses: oZakari-ALZ/ghn-mgmt-templates/.github/actions/bicep-destroy@main
@@ -385,20 +367,6 @@ jobs:
           location: '${{ env.LOCATION }}'
           deploymentType: 'managementGroup'
           firstRunWhatIf: 'false'
-          whatIfEnabled: 'false'
-      - name: 'Deploy: Connectivity Resource Group Deployment'
-        uses: oZakari-ALZ/ghn-mgmt-templates/.github/actions/bicep-deploy@main
-        if: ${{ inputs.connectivity_resource_group && !inputs.destroy }}
-        with:
-          displayName: 'Connectivity Resource Group Deployment'
-          templateFilePath: './infra-as-code/bicep/modules/resourceGroup/resourceGroup.bicep'
-          templateParametersFilePath: './config/custom-parameters/resourceGroupConnectivity.parameters.all.json'
-          managementGroupId: ''
-          subscriptionId: '${{ env.CONNECTIVITY_SUBSCRIPTION_ID }}'
-          resourceGroupName: ''
-          location: '${{ env.LOCATION }}'
-          deploymentType: 'subscription'
-          firstRunWhatIf: 'true'
           whatIfEnabled: 'false'
 
       - name: Run Bicep Destroy
