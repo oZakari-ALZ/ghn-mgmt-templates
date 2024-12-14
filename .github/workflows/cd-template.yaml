@@ -306,8 +306,8 @@ jobs:
           templateFilePath: './infra-as-code/bicep/modules/policy/definitions/customPolicyDefinitions.bicep'
           templateParametersFilePath: './config/custom-parameters/customPolicyDefinitions.parameters.all.json'
           managementGroupId: '${{ env.MANAGEMENT_GROUP_ID }}'
-          subscriptionId: ''
-          resourceGroupName: ''
+          subscriptionId: '${{ secrets.SUBSCRIPTION_ID }}'  # Replace with actual value
+          resourceGroupName: '${{ secrets.RESOURCE_GROUP_NAME }}'  # Replace with actual value
           location: '${{ env.LOCATION }}'
           deploymentType: 'managementGroup'
           firstRunWhatIf: 'false'
@@ -320,8 +320,8 @@ jobs:
           templateFilePath: './infra-as-code/bicep/modules/customRoleDefinitions/customRoleDefinitions.bicep'
           templateParametersFilePath: './config/custom-parameters/customRoleDefinitions.parameters.all.json'
           managementGroupId: '${{ env.MANAGEMENT_GROUP_ID }}'
-          subscriptionId: ''
-          resourceGroupName: ''
+          subscriptionId: '${{ secrets.SUBSCRIPTION_ID }}'  # Replace with actual value
+          resourceGroupName: '${{ secrets.RESOURCE_GROUP_NAME }}'  # Replace with actual value
           location: '${{ env.LOCATION }}'
           deploymentType: 'managementGroup'
           firstRunWhatIf: 'false'
@@ -334,8 +334,8 @@ jobs:
           templateFilePath: './infra-as-code/bicep/orchestration/mgDiagSettingsAll/mgDiagSettingsAll.bicep'
           templateParametersFilePath: './config/custom-parameters/mgDiagSettingsAll.parameters.all.json'
           managementGroupId: '${{ env.MANAGEMENT_GROUP_ID }}'
-          subscriptionId: ''
-          resourceGroupName: ''
+          subscriptionId: '${{ secrets.SUBSCRIPTION_ID }}'  # Replace with actual value
+          resourceGroupName: '${{ secrets.RESOURCE_GROUP_NAME }}'  # Replace with actual value
           location: '${{ env.LOCATION }}'
           deploymentType: 'managementGroup'
           firstRunWhatIf: 'false'
@@ -348,8 +348,8 @@ jobs:
           templateFilePath: './infra-as-code/bicep/modules/policy/assignments/alzDefaults/alzDefaultPolicyAssignments.bicep'
           templateParametersFilePath: './config/custom-parameters/alzDefaultPolicyAssignments.parameters.all.json'
           managementGroupId: '${{ env.MANAGEMENT_GROUP_ID }}'
-          subscriptionId: ''
-          resourceGroupName: ''
+          subscriptionId: '${{ secrets.SUBSCRIPTION_ID }}'  # Replace with actual value
+          resourceGroupName: '${{ secrets.RESOURCE_GROUP_NAME }}'  # Replace with actual value
           location: '${{ env.LOCATION }}'
           deploymentType: 'managementGroup'
           firstRunWhatIf: 'false'
